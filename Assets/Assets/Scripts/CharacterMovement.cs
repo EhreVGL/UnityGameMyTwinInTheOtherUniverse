@@ -13,6 +13,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     private Vector3 cameraPosition;
 
+    private Rigidbody rb;
     private Transform transform;
     private Vector3 constantMovement;
     private float constantMovementMultiplier;
@@ -28,6 +29,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         transform = GetComponent<Transform>();
         constantMovement = Vector3.forward;
         constantMovementMultiplier = 16f;
@@ -43,7 +45,6 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         cameraPosition = new Vector3(mainCamera.transform.position.x - transform.position.x, mainCamera.transform.position.y - transform.position.y, mainCamera.transform.position.z - transform.position.z);
-        
     }
 
     // Update is called once per frame
@@ -54,6 +55,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.velocity = Vector3.zero;
         if (!isFinish)
         {
             mainCamera.transform.position = transform.position + cameraPosition;
@@ -65,7 +67,7 @@ public class CharacterMovement : MonoBehaviour
 
                 touch = Input.GetTouch(0);
 
-                //Movement z-axis
+                //Move z-axis
                 transform.position += whichPlatform ? (constantMovement * (constantMovementMultiplier * Time.fixedDeltaTime)) : (constantMovement * (-constantMovementMultiplier * Time.fixedDeltaTime));
 
                 if (touch.phase == TouchPhase.Began)
@@ -75,11 +77,17 @@ public class CharacterMovement : MonoBehaviour
 
                 if (touchBeganPosition.x - touch.position.x > 30)
                 {
-                    transform.position -= verticalMovement * (verticalMovementMultiplier * Time.fixedDeltaTime);
+                    if(transform.position.x > -3)
+                    {
+                        transform.position -= verticalMovement * (verticalMovementMultiplier * Time.fixedDeltaTime);
+                    }
                 }
                 else if (touchBeganPosition.x - touch.position.x < -30)
                 {
-                    transform.position += verticalMovement * (verticalMovementMultiplier * Time.fixedDeltaTime);
+                    if (transform.position.x < 5)
+                    {
+                        transform.position += verticalMovement * (verticalMovementMultiplier * Time.fixedDeltaTime);
+                    }
                 }
 
             }

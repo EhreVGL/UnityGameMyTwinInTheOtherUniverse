@@ -37,6 +37,8 @@ public class CameraPhaseController : MonoBehaviour
             transformFPS = false;
             transformPlayerSeq = DOTween.Sequence();
             transformPlayerSeq.Append(transform.DORotate(new Vector3(-180, 0, 0), 3)).OnComplete(() => { Debug.Log("Þimdi Basket Zamaný"); });
+            transformPlayerSeq.Join(transform.DOMove(new Vector3(0f, 6f, -18f), 5));
+
         }
     }
 }
