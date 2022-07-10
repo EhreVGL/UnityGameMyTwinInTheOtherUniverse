@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallMechanic : MonoBehaviour
 {
-    private bool triggerTrowel;
+    [HideInInspector] public bool triggerTrowel;
     private bool triggerTopGround;
     private bool triggerContainer;
     private Rigidbody rb;
@@ -39,11 +39,8 @@ public class BallMechanic : MonoBehaviour
             triggerTopGround = false;
             rb.AddForce(10 * Vector3.down, ForceMode.Impulse);
         }
-        if (triggerContainer)
-        {
-            rb.velocity = Vector3.zero;
-        }
-        if(transform.position.y < -100 || transform.position.y > 100)
+
+        if(transform.position.y < -50 || transform.position.y > 50)
         {
             Destroy(this.gameObject);
         }
@@ -72,6 +69,11 @@ public class BallMechanic : MonoBehaviour
             {
                 triggerTopGround = true;
             }
+        }
+
+        if(collision.gameObject.layer == 11)
+        {
+            collision.gameObject.GetComponent<Ending>().goalCounter++;           
         }
 
     }

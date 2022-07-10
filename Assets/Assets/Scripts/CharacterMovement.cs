@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     // UI OBJECTS
     [SerializeField] private TextMeshProUGUI startText;
     [SerializeField] private Image startLayer;
-    
+    [SerializeField] private TextMeshProUGUI ballValueText;
     // CAMERA OBJECTS
     [SerializeField] private Camera mainCamera;
     private Vector3 cameraPosition;
@@ -26,6 +26,8 @@ public class CharacterMovement : MonoBehaviour
     private bool isFinish;
 
     private bool whichPlatform;
+
+    [SerializeField] private GameObject shootingBallPosition;
 
     private void Awake()
     {
@@ -77,7 +79,7 @@ public class CharacterMovement : MonoBehaviour
 
                 if (touchBeganPosition.x - touch.position.x > 30)
                 {
-                    if(transform.position.x > -3)
+                    if(transform.position.x > -5)
                     {
                         transform.position -= verticalMovement * (verticalMovementMultiplier * Time.fixedDeltaTime);
                     }
@@ -107,8 +109,13 @@ public class CharacterMovement : MonoBehaviour
             else
             {
                 mainCamera.GetComponent<CameraPhaseController>().transformFPS = true;
+                ballValueText.text = "x" + (transform.childCount-1);
+                while (transform.childCount > 1)
+                {
+                    transform.GetChild(1).gameObject.SetActive(false);
+                    transform.GetChild(1).transform.parent = shootingBallPosition.transform;
+                }
             }
         }
     }
-
 }
