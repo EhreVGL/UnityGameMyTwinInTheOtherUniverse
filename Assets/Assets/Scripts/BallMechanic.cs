@@ -43,6 +43,10 @@ public class BallMechanic : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
         }
+        if(transform.position.y < -100 || transform.position.y > 100)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 
@@ -50,7 +54,6 @@ public class BallMechanic : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            Debug.Log("aaaaaa");
             if (triggerTrowel == true)
             {
                 triggerContainer = true;
