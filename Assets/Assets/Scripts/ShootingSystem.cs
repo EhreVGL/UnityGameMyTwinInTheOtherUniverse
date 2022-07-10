@@ -27,9 +27,7 @@ public class ShootingSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ballValueText;
     [SerializeField] private RawImage[] backStars;
     [SerializeField] private RawImage[] frontStars;
-    [SerializeField] private RawImage endFrame;
-    private Color color;
-    private int endStatu;
+
 
     private void Awake()
     {
@@ -42,9 +40,6 @@ public class ShootingSystem : MonoBehaviour
         touchEndedPosition = 0;
         forceValueX = 0.01f;
         forceValueZ = -20f;
-        color = new Color(0, 0, 0, 0);
-        endStatu = 0;
-
     }
     private void Start()
     {
@@ -100,65 +95,34 @@ public class ShootingSystem : MonoBehaviour
                         }
 
                         shoot = true;
-                        if (ballValue < 0)
-                        {
-                            startShooting = false;
-                            endFrame.enabled = true;
-                            FinishBall();
-                        }
-                        else
-                        {
-                            //GameObject ballclone = shootingBallPosition.transform.GetChild(ballValue).gameObject;
-                            GameObject ballclone = shootingBallPosition.transform.GetChild(ballValue).gameObject;
-                            ballValueText.text = "x" + ballValue;
-                            ballValue--;
-                            ballclone.SetActive(true);
-                            ballclone.transform.position = shootingBallPosition.transform.position;
-                            ballclone.gameObject.GetComponent<BallMechanic>().triggerTrowel = false;
-                            rb = ballclone.GetComponent<Rigidbody>();
-                            rb.constraints = RigidbodyConstraints.None;
-                            rb.AddForce((touchBeganPosition - touchEndedPosition) * forceValueX, 0, forceValueZ, ForceMode.Impulse);
-                        }
+
+
+                        //GameObject ballclone = shootingBallPosition.transform.GetChild(ballValue).gameObject;
+                        GameObject ballclone = shootingBallPosition.transform.GetChild(ballValue).gameObject;
+                        ballValueText.text = "x" + ballValue;
+                        ballValue--;
+                        ballclone.SetActive(true);
+                        ballclone.transform.position = shootingBallPosition.transform.position;
+                        ballclone.gameObject.GetComponent<BallMechanic>().triggerTrowel = false;
+                        rb = ballclone.GetComponent<Rigidbody>();
+                        rb.constraints = RigidbodyConstraints.None;
+                        rb.AddForce((touchBeganPosition - touchEndedPosition) * forceValueX, 0, forceValueZ, ForceMode.Impulse);
+                        
                     }
 
                 }
 
+            }
+            if (ballValue < 0)
+            {
+                startShooting = false;
+                FinishBall();
             }
         }
     }
 
     private void FinishBall()
     {
-        for(int i = 0; i < 3; i++)
-        {
-            if (frontStars[i].enabled == true)
-            {
-                endStatu++;
-            }
-        }
-        StartCoroutine(NextLevel());
-    }
-
-    IEnumerator NextLevel()
-    {
-        while (true)
-        {
-            color.a += 0.05f;
-            endFrame.GetComponent<Image>().color = color;
-            yield return new WaitForSeconds(0.1f);
-
-            if (color.a == 1)
-            {
-                if(endStatu == 3)
-                {
-                    //NextLevel
-                }
-                else
-                {
-                    //CurrentLevel
-                }
-                yield break;
-            }
-        }
+        this.gameObject.transform.GetChild(1).gameObject.GetComponent<Ending>().zeroBall = true;
     }
 }

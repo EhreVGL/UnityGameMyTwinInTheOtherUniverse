@@ -7,11 +7,18 @@ using TMPro;
 public class Ending : MonoBehaviour
 {
     [HideInInspector] public int goalCounter;
+    [HideInInspector] public bool zeroBall;
     [SerializeField] private RawImage[] frontStars;
     [SerializeField] private RawImage endFrame;
+    [SerializeField] private TextMeshProUGUI ballValueText;
     private Color color;
+    private SceneChanger changer;
+    private bool returningLevel;
     private void Awake()
     {
+        changer = GetComponent<SceneChanger>();
+        returningLevel = false;
+        zeroBall = false;
         goalCounter = 0;
         color = new Color(0, 0, 0, 0);
     }
@@ -34,12 +41,21 @@ public class Ending : MonoBehaviour
         }
         else if (goalCounter == 3)
         {
+            returningLevel = false;
             goalCounter++;
             frontStars[2].enabled = true;
             Debug.Log("Finished Level!");
             endFrame.enabled = true;
             StartCoroutine(NextLevel());
 
+        }
+
+        if (zeroBall == true && returningLevel == false)
+        {
+            returningLevel = true;
+            Debug.Log("Return Level!");
+            endFrame.enabled = true;
+            StartCoroutine(ReturnLevel());
         }
     }
 
@@ -51,9 +67,27 @@ public class Ending : MonoBehaviour
             endFrame.color = color;
             yield return new WaitForSeconds(0.1f);
 
-            if (color.a == 1)
+            if (color.a >= 1)
             {
                 //NextLevel
+                changer.LoadNewLevel();
+                yield break;
+            }
+        }
+    }
+
+    IEnumerator ReturnLevel()
+    {
+        while (true)
+        {
+            color.a += 0.05f;
+            endFrame.color = color;
+            yield return new WaitForSeconds(0.1f);
+
+            if (color.a >= 1)
+            {
+                //CurrentLevel
+                changer.ReturnThisLevel();
                 yield break;
             }
         }
