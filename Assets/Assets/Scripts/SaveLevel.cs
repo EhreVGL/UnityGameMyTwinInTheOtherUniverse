@@ -46,6 +46,10 @@ public sealed class SaveLevel
     {
         return PlayerPrefs.GetInt("ResetLevel", 1);
     }
+    public void ResetResetLevel()
+    {
+        PlayerPrefs.SetInt("ResetLevel", 0);
+    }
     public void ResetLevel()
     {
         PlayerPrefs.SetInt("ResetLevel", GetResetLevel() + 1);

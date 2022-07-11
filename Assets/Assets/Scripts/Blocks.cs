@@ -18,7 +18,6 @@ public class Blocks : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            Debug.Log("Trigger");
             collision.gameObject.GetComponent<CharacterMovement>().enabled = false;
             SaveLevel.singleton.ResetLevel();
         }

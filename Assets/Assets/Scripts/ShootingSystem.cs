@@ -32,6 +32,7 @@ public class ShootingSystem : MonoBehaviour
     [SerializeField] private RawImage[] backStars;
     [SerializeField] private RawImage[] frontStars;
 
+    private float timer;
 
     private void Awake()
     {
@@ -46,6 +47,7 @@ public class ShootingSystem : MonoBehaviour
         touchEndedPosition = 0;
         forceValueX = 0.01f;
         forceValueZ = -20f;
+        timer = 4f;
     }
     private void Start()
     {
@@ -133,8 +135,12 @@ public class ShootingSystem : MonoBehaviour
             }
             if (ballValue < 0)
             {
-                startShooting = false;
-                FinishBall();
+                timer -= Time.fixedDeltaTime;
+                if(timer < 0)
+                {
+                    startShooting = false;
+                    FinishBall();
+                }
             }
         }
 

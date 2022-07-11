@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Scene
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -69,8 +69,8 @@ MonoBehaviour:
     y: 0
     width: 358
     height: 939
-  m_MinSize: {x: 276, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -98,7 +98,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 989
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -171,9 +171,9 @@ MonoBehaviour:
     width: 1920
     height: 939
   m_MinSize: {x: 780, y: 492}
-  m_MaxSize: {x: 18004, y: 14042}
+  m_MaxSize: {x: 18003, y: 14042}
   vertical: 1
-  controlID: 101
+  controlID: 17
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,9 +196,9 @@ MonoBehaviour:
     width: 1920
     height: 939
   m_MinSize: {x: 780, y: 492}
-  m_MaxSize: {x: 18004, y: 14042}
+  m_MaxSize: {x: 18003, y: 14042}
   vertical: 0
-  controlID: 102
+  controlID: 18
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,10 +220,10 @@ MonoBehaviour:
     y: 0
     width: 1562
     height: 939
-  m_MinSize: {x: 504, y: 492}
+  m_MinSize: {x: 505, y: 492}
   m_MaxSize: {x: 14003, y: 14042}
   vertical: 1
-  controlID: 103
+  controlID: 19
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,10 +246,10 @@ MonoBehaviour:
     y: 0
     width: 1562
     height: 668
-  m_MinSize: {x: 504, y: 221}
-  m_MaxSize: {x: 12004, y: 4021}
+  m_MinSize: {x: 505, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 104
+  controlID: 20
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 333
     height: 668
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_MinSize: {x: 333, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 126
+  controlID: 89
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -540,7 +540,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d03cfffff03cffffc83ffffff841ffffb643ffff0646ffff1046ffff8a4dffffaa4dffff8650ffffba52ffff7c54ffffd056ffffde56ffff6e59ffff905bfffff85effff185ffffff061ffff2064ffffde65ffff2e68ffff3868ffffec6dffff3070ffff8675ffff9679ffff147affff347affffe87affff187dffffd67effff2681ffff5883ffff4a86ffffd488ffff148bffffb88dffff6495ffffeca5ffffcca8ffff9aaeffff9caeffff4ab1ffff64b5ffff2eb9ffff16c9ffffb4f7ffff6afbfffff02f0100
+      m_ExpandedIDs: 4ccfffff6ccfffff44d2ffff74d4ffff7ed4ffffced6fffff2d7ffffdef8ffff6efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -601,9 +601,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.0683002, y: -14.868713, z: 31.426556}
+    m_Target: {x: 5.4926577, y: -11.455484, z: 33.305218}
     speed: 2
-    m_Value: {x: -3.0683002, y: -14.868713, z: 31.426556}
+    m_Value: {x: 5.4926577, y: -11.455484, z: 33.305218}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -650,9 +650,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.20989689, y: -0.021322269, z: 0.004478488, w: 0.977566}
+    m_Target: {x: 0.15764113, y: 0.092391044, z: -0.014917072, w: 0.9831427}
     speed: 2
-    m_Value: {x: 0.2098794, y: -0.021320492, z: 0.004478115, w: 0.9774845}
+    m_Value: {x: 0.15907869, y: 0.09383442, z: -0.015292982, w: 0.9826776}
   m_Size:
     m_Target: 21.983524
     speed: 2
@@ -784,22 +784,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Assets/Scripts
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\runo_\Unity Projects\My Twin in The Other Universe
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 42}
-    m_SelectedIDs: f6460000
-    m_LastClickedID: 18166
-    m_ExpandedIDs: 00000000d8460000e246000000ca9a3b
+    m_SelectedIDs: 5c440000
+    m_LastClickedID: 17500
+    m_ExpandedIDs: 00000000484400005244000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -827,7 +827,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d8460000
+    m_ExpandedIDs: 0000000048440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -937,7 +937,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 43380
+  m_LastSelectedObjectID: -2246
 --- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 0

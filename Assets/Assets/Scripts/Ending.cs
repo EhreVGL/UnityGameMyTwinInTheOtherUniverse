@@ -27,6 +27,7 @@ public class Ending : MonoBehaviour
     void Start()
     {
         endFrame.enabled = false;
+        SaveLevel.singleton.ResetResetLevel();
     }
 
     // Update is called once per frame
@@ -53,6 +54,12 @@ public class Ending : MonoBehaviour
         if (zeroBall == true && returningLevel == false)
         {
             returningLevel = true;
+            endFrame.enabled = true;
+            StartCoroutine(ReturnLevel());
+        }
+        if (SaveLevel.singleton.GetResetLevel() >= 1)
+        {
+            SaveLevel.singleton.SetResetLevel();
             endFrame.enabled = true;
             StartCoroutine(ReturnLevel());
         }
