@@ -9,7 +9,7 @@ public class CameraPhaseController : MonoBehaviour
     [HideInInspector] public bool transformFPS;
     Sequence transformPlayerSeq;
     [SerializeField] private GameObject container;
-
+    [SerializeField] private GameObject light;
 
 
     private void Awake()
@@ -31,6 +31,7 @@ public class CameraPhaseController : MonoBehaviour
             transformPlayerSeq = DOTween.Sequence();
             transformPlayerSeq.Append(transform.DORotate(new Vector3(-127, 0, 0), 5)).OnComplete(() => {container.SetActive(true);});
             transformPlayerSeq.Join(transform.DOMove(new Vector3(0.11f, 3.9f, 142.5f), 5));
+            transformPlayerSeq.Join(light.transform.DORotate(new Vector3(-146.654f, 0, 0), 5));
         }
         if (transformFPS)
         {

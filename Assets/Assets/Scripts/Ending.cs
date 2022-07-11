@@ -56,12 +56,6 @@ public class Ending : MonoBehaviour
             endFrame.enabled = true;
             StartCoroutine(ReturnLevel());
         }
-        if(SaveLevel.singleton.GetResetLevel() == 1)
-        {
-            SaveLevel.singleton.SetResetLevel();
-            endFrame.enabled = true;
-            StartCoroutine(ReturnLevel());
-        }
     }
 
     IEnumerator NextLevel()

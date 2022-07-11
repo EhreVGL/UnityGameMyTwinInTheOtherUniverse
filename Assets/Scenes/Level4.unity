@@ -5348,6 +5348,7 @@ MonoBehaviour:
   transformPlayer: 0
   transformFPS: 0
   container: {fileID: 458212608}
+  light: {fileID: 705507993}
 --- !u!1 &964412190
 GameObject:
   m_ObjectHideFlags: 0

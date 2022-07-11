@@ -36,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
         constantMovement = Vector3.forward;
         constantMovementMultiplier = 16f;
         verticalMovement = Vector3.right;
-        verticalMovementMultiplier = 3f;
+        verticalMovementMultiplier = 4f;
         touchBeganPosition = Vector2.zero;
 
         isFinish = false;

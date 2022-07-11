@@ -28,7 +28,7 @@ public class ObjectPoolingSystem : MonoBehaviour
         }
 
         //Block
-        totalBlock = 6;
+        totalBlock = 12;
         blocksPool = new Queue<GameObject>();
 
         for (int i = 0; i < totalBlock; i++)
@@ -53,7 +53,6 @@ public class ObjectPoolingSystem : MonoBehaviour
         GameObject obj = blocksPool.Dequeue();
 
         obj.SetActive(true);
-
 
         return obj;
     }

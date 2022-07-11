@@ -790,7 +790,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh81664
+  m_Name: pb_Mesh35826
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5518,6 +5518,7 @@ MonoBehaviour:
   transformPlayer: 0
   transformFPS: 0
   container: {fileID: 458212608}
+  light: {fileID: 705507993}
 --- !u!1 &964412190
 GameObject:
   m_ObjectHideFlags: 0
@@ -7711,8 +7712,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7461717, y: 0.15921676, z: 0.21143997}
-  m_Center: {x: 0.4934612, y: 0.025978982, z: 0.06644791}
+  m_Size: {x: 1.5453696, y: 0.15921676, z: 0.21143997}
+  m_Center: {x: 0.5016297, y: 0.025978982, z: 0.06644791}
 --- !u!114 &1307185440
 MonoBehaviour:
   m_ObjectHideFlags: 0
