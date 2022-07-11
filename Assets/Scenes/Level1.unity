@@ -5248,6 +5248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 3698241209440318076, guid: 4b30672c29d8acd4f89a482719743edb,
     type: 3}
+  blocksPrefab: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -9062,6 +9063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 3698241209440318076, guid: 4b30672c29d8acd4f89a482719743edb,
     type: 3}
+  blocksPrefab: []
 --- !u!1 &1429500852
 GameObject:
   m_ObjectHideFlags: 0
@@ -10538,6 +10540,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1685024518530027119, guid: 09403e83ea4392c47b2c791dda8ce6f2,
+        type: 3}
+      propertyPath: blocksPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685024518530027119, guid: 09403e83ea4392c47b2c791dda8ce6f2,
+        type: 3}
+      propertyPath: blocksPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 8211651210875235329, guid: b2c5005235c72b54884b63629246e818,
+        type: 3}
+    - target: {fileID: 1685024518530027119, guid: 09403e83ea4392c47b2c791dda8ce6f2,
+        type: 3}
+      propertyPath: blocksPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 4545537107318405340, guid: d541c81c79fe8f1439a47f9bc816ef8f,
+        type: 3}
+    - target: {fileID: 1685024518530027119, guid: 09403e83ea4392c47b2c791dda8ce6f2,
+        type: 3}
+      propertyPath: blocksPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 4957464258980877890, guid: 353d0ac4a1991be429f74def5c90ec0d,
+        type: 3}
     - target: {fileID: 1685024519495893274, guid: 09403e83ea4392c47b2c791dda8ce6f2,
         type: 3}
       propertyPath: m_RootOrder

@@ -953,7 +953,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1685024518530027116}
-  - component: {fileID: 1685024518530027119}
   m_Layer: 0
   m_Name: BottomGround
   m_TagString: Untagged
@@ -979,20 +978,6 @@ Transform:
   m_Father: {fileID: 1685024519495893274}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1685024518530027119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685024518530027117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23f22d97a66e6fb45912d2392572e5a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 3698241209440318076, guid: 4b30672c29d8acd4f89a482719743edb,
-    type: 3}
 --- !u!1 &1685024518606633805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1382,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1685024519052680382}
-  - component: {fileID: 1685024519052680369}
   m_Layer: 0
   m_Name: TopGround
   m_TagString: Untagged
@@ -1423,20 +1407,6 @@ Transform:
   m_Father: {fileID: 1685024519495893274}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &1685024519052680369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685024519052680383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23f22d97a66e6fb45912d2392572e5a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 3698241209440318076, guid: 4b30672c29d8acd4f89a482719743edb,
-    type: 3}
 --- !u!1 &1685024519102672963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,6 +2185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1685024519495893274}
+  - component: {fileID: 5065513303801727639}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -2240,6 +2211,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5065513303801727639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685024519495893275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f22d97a66e6fb45912d2392572e5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 3698241209440318076, guid: 4b30672c29d8acd4f89a482719743edb,
+    type: 3}
+  blocksPrefab:
+  - {fileID: 8211651210875235329, guid: b2c5005235c72b54884b63629246e818, type: 3}
+  - {fileID: 4545537107318405340, guid: d541c81c79fe8f1439a47f9bc816ef8f, type: 3}
 --- !u!1 &1685024519524242707
 GameObject:
   m_ObjectHideFlags: 0

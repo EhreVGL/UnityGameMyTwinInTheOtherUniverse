@@ -8,6 +8,10 @@ public class ShootingSystem : MonoBehaviour
     [SerializeField] private GameObject ball;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Camera mainCamera;
+    private GameObject shootingBoard;
+    private bool moveBoard;
+    private Vector3 BoardPos;
+    private int BoardPosRotation;
     private Vector3 cameraPosition;
     private bool startShooting;
     private bool shoot;
@@ -32,6 +36,8 @@ public class ShootingSystem : MonoBehaviour
     private void Awake()
     {
         cameraPosition = new Vector3(0f, 8f, -18f);
+        BoardPos = new Vector3(0.152f, 6.430001f, -0.2415566f);
+        BoardPosRotation = 1;
         startShooting = false;
         shoot = false;
         takeBallValue = true;
@@ -50,6 +56,13 @@ public class ShootingSystem : MonoBehaviour
             frontStars[i].enabled = false;
 
         }
+        if (SaveLevel.singleton.GetLevel() >= 3)
+        {
+            shootingBoard = transform.GetChild(1).gameObject;
+            BoardPos.x = 0.5f;
+            shootingBoard.transform.localPosition = BoardPos;
+            moveBoard = true;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -64,7 +77,12 @@ public class ShootingSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(startShooting)
+        if (moveBoard)
+        {
+            moveBoard = false;
+            StartCoroutine(MoveBoardPosition());
+        }
+        if (startShooting)
         {
             //UI Enable
             ballValueText.enabled = true;
@@ -119,10 +137,32 @@ public class ShootingSystem : MonoBehaviour
                 FinishBall();
             }
         }
-    }
 
+
+    }
     private void FinishBall()
     {
         this.gameObject.transform.GetChild(1).gameObject.GetComponent<Ending>().zeroBall = true;
+    }
+
+    IEnumerator MoveBoardPosition()
+    {
+        while (true)
+        {
+            if (shootingBoard.transform.localPosition.x > 0.5f)
+            {
+                BoardPosRotation = -1;
+            }
+            else if (shootingBoard.transform.localPosition.x < -0.3f)
+            {
+                BoardPosRotation = 1;
+            }
+            
+            BoardPos.x += (0.005f * BoardPosRotation);
+            shootingBoard.transform.localPosition = BoardPos;
+
+            yield return new WaitForSeconds(0.01f);
+
+        }
     }
 }

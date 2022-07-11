@@ -59,8 +59,10 @@
     <Compile Include="Assets\Assets\Scripts\GroundPartsSystem.cs" />
     <Compile Include="Assets\Assets\Scripts\ObjectPoolingSystem.cs" />
     <Compile Include="Assets\Assets\Scripts\ShootingSystem.cs" />
-    <Compile Include="Assets\Assets\Scripts\BallMechanic.cs" />
     <Compile Include="Assets\Assets\Scripts\SceneChanger.cs" />
+    <Compile Include="Assets\Assets\Scripts\BallMechanic.cs" />
+    <Compile Include="Assets\Assets\Scripts\SaveLevel.cs" />
+    <Compile Include="Assets\Assets\Scripts\Blocks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

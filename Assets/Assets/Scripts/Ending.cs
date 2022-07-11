@@ -21,6 +21,7 @@ public class Ending : MonoBehaviour
         zeroBall = false;
         goalCounter = 0;
         color = new Color(0, 0, 0, 0);
+
     }
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,6 @@ public class Ending : MonoBehaviour
             returningLevel = false;
             goalCounter++;
             frontStars[2].enabled = true;
-            Debug.Log("Finished Level!");
             endFrame.enabled = true;
             StartCoroutine(NextLevel());
 
@@ -53,7 +53,12 @@ public class Ending : MonoBehaviour
         if (zeroBall == true && returningLevel == false)
         {
             returningLevel = true;
-            Debug.Log("Return Level!");
+            endFrame.enabled = true;
+            StartCoroutine(ReturnLevel());
+        }
+        if(SaveLevel.singleton.GetResetLevel() == 1)
+        {
+            SaveLevel.singleton.SetResetLevel();
             endFrame.enabled = true;
             StartCoroutine(ReturnLevel());
         }
@@ -71,6 +76,7 @@ public class Ending : MonoBehaviour
             {
                 //NextLevel
                 changer.LoadNewLevel();
+                SaveLevel.singleton.LevelUp();
                 yield break;
             }
         }

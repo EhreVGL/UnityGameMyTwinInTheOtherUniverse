@@ -77,6 +77,7 @@ public class CharacterMovement : MonoBehaviour
                     touchBeganPosition = touch.position;
                 }
 
+                //Move x-axis
                 if (touchBeganPosition.x - touch.position.x > 30)
                 {
                     if(transform.position.x > -5)

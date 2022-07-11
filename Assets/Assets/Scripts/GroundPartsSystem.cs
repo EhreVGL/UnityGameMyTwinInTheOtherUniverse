@@ -9,12 +9,17 @@ public class GroundPartsSystem : MonoBehaviour
 
     private bool playerTriggerExit;
     private bool becameInvisible;
-    private bool spawnObject;
+    private bool spawnBallObject;
+    private bool spawnBlockObject;
     private int changePositionCounter;
 
     private int spawnBallCount;
     private ObjectPoolingSystem poolingSystem;
     private Vector3 spawnPosition;
+    private float movePartRotation;
+
+    //LevelData
+    private int level;
     private void Awake()
     {
         for(int i = 1; i < 5; i++)
@@ -37,16 +42,19 @@ public class GroundPartsSystem : MonoBehaviour
 
         playerTriggerExit = false;
         becameInvisible = false;
-        spawnObject = true;
+        spawnBallObject = true;
+        spawnBlockObject = true;
         changePositionCounter = 2;
 
         spawnBallCount = 2;
         spawnPosition = Vector3.zero;
+        movePartRotation = -0.2f;
     }
     // Start is called before the first frame update
     void Start()
     {
-        poolingSystem = transform.parent.GetComponent<ObjectPoolingSystem>();
+        poolingSystem = transform.parent.transform.parent.GetComponent<ObjectPoolingSystem>();
+        level = SaveLevel.singleton.GetLevel();
     }
 
     // Update is called once per frame
@@ -59,18 +67,87 @@ public class GroundPartsSystem : MonoBehaviour
         else if(whichPart == 2)
         {
             ChangePosition();
-            SpawningObject();
+            if (level == 1)
+            {
+                spawnBallCount = 2;
+                SpawningBalls();
+            }
+            else if (level == 2)
+            {
+                spawnBallCount = 2;
+                SpawningBalls();
+            }
+            else if (level == 3)
+            {
+                spawnBallCount = 2;
+                SpawningBalls();
+            }
+            else if (level == 4)
+            {
+                spawnBallCount = 1;
+                SpawningBalls();
+                SpawningBlock();
+            }
+            else if (level == 5)
+            {
+                spawnBallCount = 1;
+                SpawningBalls();
+            }
 
         }
         else if(whichPart == 3)
         {
             ChangePosition();
-            SpawningObject();
+            if (level == 1)
+            {
+                spawnBallCount = 2;
+                SpawningBalls();
+            }
+            else if (level == 2)
+            {
+                SpawningBlock();
+            }
+            else if (level == 3)
+            {
+                SpawningBlock();
+            }
+            else if (level == 4)
+            {
+                SpawningBlock();
+            }
+            else if (level == 5)
+            {
+                ChangeScale();  
+            }
         }
         else if(whichPart == 4)
         {
             ChangePosition();
-            SpawningObject();
+            if (level == 1)
+            {
+                spawnBallCount = 2;
+                SpawningBalls();
+            }
+            else if (level == 2)
+            {
+                spawnBallCount = 2;
+                SpawningBalls();
+            }
+            else if (level == 3)
+            {
+                spawnBallCount = 2;
+                SpawningBalls();
+            }
+            else if (level == 4)
+            {
+                spawnBallCount = 3;
+                SpawningBalls();
+            }
+            else if (level == 5)
+            {
+                spawnBallCount = 2;
+                SpawningBalls();
+            }
         }
     }
     private void ChangePosition()
@@ -92,33 +169,76 @@ public class GroundPartsSystem : MonoBehaviour
             }
 
             //SpawnObject
-            spawnObject = true;
+            spawnBallObject = true;
+            spawnBlockObject = true;
+        }
+    }
+    private void ChangeScale()
+    {
+        if (isThereBottom)
+        {
+            if (transform.localPosition.x < -15)
+            {
+                movePartRotation = -0.2f;
+            }
+            else if (transform.localPosition.x > 15)
+            {
+                movePartRotation = 0.2f;
+            }
+            transform.localPosition += (Vector3.left * movePartRotation);
         }
     }
     //Random.Range(transform.position.z - 12, transform.position.z)
-    private void SpawningObject()
+    private void SpawningBalls()
     {
-        if (spawnObject)
+        if (spawnBallObject)
         {
             if (isThereBottom)
             {
+                spawnPosition = new Vector3(Random.Range(-4, 4), transform.position.y + 1, Random.Range(transform.position.z - 6, transform.position.z + 6));
                 for (int i = spawnBallCount; i > 0; i--)
                 {
-                    if (i == 2)
+                    if (i == 3)
                     {
-                        spawnPosition = new Vector3(Random.Range(-4, 4), transform.position.y + 1, Random.Range(transform.position.z - 6, transform.position.z + 6));
+                        spawnPosition.x -= 1.25f;
+                    }
+                    else if (i == 2)
+                    {
+                        spawnPosition.x += 1.25f;
                     }
                     else
                     {
-                        spawnPosition.x += 2;
+                        spawnPosition.x += 1.25f;
                     }
                     GameObject ball = poolingSystem.GetBallObject();
                     ball.transform.position = spawnPosition;
                 }
-                spawnObject = false;
+                spawnBallObject = false;
             }
         } 
     }
+
+    private void SpawningBlock()
+    {
+        if (spawnBlockObject)
+        {
+            if (isThereBottom)
+            {
+                spawnPosition = new Vector3(Random.Range(-4, 4), transform.position.y + 0.25f, Random.Range(transform.position.z - 6, transform.position.z + 6));
+            }
+            else
+            {
+                spawnPosition = new Vector3(Random.Range(-4, 4), transform.position.y - 0.25f, Random.Range(transform.position.z - 6, transform.position.z + 6));
+
+            }
+
+            GameObject block = poolingSystem.GetBlockObject();
+            block.transform.position = spawnPosition;
+            
+            spawnBlockObject = false;
+        }
+    }
+
     private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.layer == 7)
@@ -129,8 +249,6 @@ public class GroundPartsSystem : MonoBehaviour
     }
     private void OnBecameInvisible()
     {
-        Debug.Log("ASDASD");
-        if (!isThereBottom) { Debug.Log("TopGround ASDASD"); }
         becameInvisible=true;
     }
 

@@ -8,17 +8,24 @@ public class SceneChanger : MonoBehaviour
     private void Awake()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
+        SaveLevel.singleton.SetLevel(currentScene + 1);
+        Debug.Log(SaveLevel.singleton.GetLevel());
     }
 
     public void ReturnThisLevel()
     {
-        Debug.Log("ReturnThisLevel in SceneChanger");
         SceneManager.LoadScene(currentScene);
     }
 
     public void LoadNewLevel()
     {
-        Debug.Log("LoadNewLevel in SceneChanger");
-        SceneManager.LoadScene(currentScene + 1);
+        if(currentScene == 4)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(currentScene + 1);
+        }
     }
 }
